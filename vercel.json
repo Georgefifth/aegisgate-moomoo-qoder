@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/qca-skills/(.*)", "destination": "/qca-skills/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
