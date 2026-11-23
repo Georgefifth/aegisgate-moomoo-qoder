@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <rect width="960" height="540" fill="#F2EFE9" stroke="#0C0C0C" stroke-width="4"/>
+  <!-- Top Header Strip -->
+  <rect x="0" y="0" width="960" height="44" fill="#0C0C0C"/>
+  <text x="20" y="27" fill="#00E676" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="700">● AEGISGATE // MOOMOO × QODER AI TRADING AGENT CONTROL PLANE</text>
+  <text x="640" y="27" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="600">SIM-COMP-5770313 · $100,000 USD PAPER</text>
+
+  <!-- Left Column: Multi-Signal Scout Input -->
+  <rect x="20" y="64" width="260" height="452" fill="#EAE5DC" stroke="#0C0C0C" stroke-width="3"/>
+  <rect x="20" y="64" width="260" height="36" fill="#0C0C0C"/>
+  <text x="34" y="87" fill="#F2EFE9" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">01 // SCOUT ANOMALY INPUTS</text>
+
+  <rect x="34" y="114" width="232" height="68" fill="#F2EFE9" stroke="#0C0C0C" stroke-width="2"/>
+  <text x="46" y="135" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">US.NVDA · IGNITE BAR</text>
+  <text x="46" y="154" fill="#006B3F" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">3-SIGNAL SCORE: 91/100 · PASS 11/11</text>
+  <text x="46" y="171" fill="#4A4742" font-family="IBM Plex Mono, monospace" font-size="11">Wilder RSI 68.59 (Cutler 57.28)</text>
+
+  <rect x="34" y="196" width="232" height="68" fill="#FFE5DE" stroke="#FF3300" stroke-width="2"/>
+  <text x="46" y="217" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">US.SMCI · PRE-ER TRAP</text>
+  <text x="46" y="236" fill="#FF3300" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">BLOCKED: R03, R05, R06, R10</text>
+  <text x="46" y="253" fill="#4A4742" font-family="IBM Plex Mono, monospace" font-size="11">Saved -$6,348.55 Counterfactual Loss</text>
+
+  <rect x="34" y="278" width="232" height="68" fill="#FFE5DE" stroke="#FF3300" stroke-width="2"/>
+  <text x="46" y="299" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">US.SPY · 0DTE 600C TRAP</text>
+  <text x="46" y="318" fill="#FF3300" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="700">BLOCKED: R06, R09 (DTE &lt; 2)</text>
+  <text x="46" y="335" fill="#4A4742" font-family="IBM Plex Mono, monospace" font-size="11">Saved -$2,808.00 Expiry Liquidation</text>
+
+  <rect x="34" y="360" width="232" height="140" fill="#0C0C0C"/>
+  <text x="46" y="384" fill="#00E676" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">3-RUNG LIMIT-ORDER LADDER</text>
+  <text x="46" y="406" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">Rung 1 (T+0m):  $142.50 Mid</text>
+  <text x="46" y="426" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">Rung 2 (T+5m):  $142.53 +50%</text>
+  <text x="46" y="446" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">Rung 3 (T+10m): $142.55 Ask Cap</text>
+  <text x="46" y="476" fill="#FF6A42" font-family="IBM Plex Mono, monospace" font-size="10">20x Bar Vol Checked · Fee $2.02</text>
+
+  <!-- Center Column: Deterministic R01-R11 Gate Matrix -->
+  <rect x="300" y="64" width="330" height="452" fill="#F2EFE9" stroke="#0C0C0C" stroke-width="3"/>
+  <rect x="300" y="64" width="330" height="36" fill="#0C0C0C"/>
+  <text x="314" y="87" fill="#F2EFE9" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">02 // R01–R11 DETERMINISTIC GATE</text>
+
+  <!-- 6 Representative Gate Cells -->
+  <g font-family="IBM Plex Mono, monospace" font-size="11">
+    <rect x="314" y="114" width="302" height="54" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="135" fill="#0C0C0C" font-weight="700">R01/R02 · PRICE &gt;=$1 &amp; MCAP &gt;=$500M</text>
+    <text x="326" y="154" fill="#006B3F" font-weight="700">PASS · $142.50 · $3,480B Mcap</text>
+
+    <rect x="314" y="178" width="302" height="54" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="199" fill="#0C0C0C" font-weight="700">R03/R04 · &lt;=36% CAP &amp; &gt;=3 TICKERS</text>
+    <text x="326" y="218" fill="#006B3F" font-weight="700">PASS · 28.82% Weight (4 Tickers Held)</text>
+
+    <rect x="314" y="242" width="302" height="54" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="263" fill="#0C0C0C" font-weight="700">R05/R06 · HEAT &lt;=6% &amp; RISK &lt;=0.75%</text>
+    <text x="326" y="282" fill="#006B3F" font-weight="700">PASS · Heat 2.90% · Risk 0.748% (2.51R)</text>
+
+    <rect x="314" y="306" width="302" height="54" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="327" fill="#0C0C0C" font-weight="700">R07/R08 · DD &gt;-2% &amp; ORDERS &lt;190/200</text>
+    <text x="326" y="346" fill="#006B3F" font-weight="700">PASS · Regime FULL · 14/200 Orders</text>
+
+    <rect x="314" y="370" width="302" height="54" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="391" fill="#0C0C0C" font-weight="700">R09/R10 · OPTION DTE&gt;=2 &amp; ER &gt;2D</text>
+    <text x="326" y="410" fill="#006B3F" font-weight="700">PASS · Zero Auto-Exercise · ER in 19d</text>
+
+    <rect x="314" y="434" width="302" height="66" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="2"/>
+    <text x="326" y="455" fill="#0C0C0C" font-weight="700">R11 · SGT 3-SESSION &amp; HOLIDAY GUARD</text>
+    <text x="326" y="474" fill="#006B3F" font-weight="700">PASS · RTH 22:30 SGT · Nov 27 Flatten Armed</text>
+    <text x="326" y="491" fill="#4A4742" font-size="10">Gate Latency: 0.0066 ms / evaluation</text>
+  </g>
+
+  <!-- Right Column: Guarded vs Counterfactual Scope -->
+  <rect x="650" y="64" width="290" height="452" fill="#0C0C0C" stroke="#0C0C0C" stroke-width="3"/>
+  <text x="666" y="92" fill="#F2EFE9" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">03 // COUNTERFACTUAL SCOPE</text>
+  <text x="666" y="116" fill="#00E676" font-family="IBM Plex Mono, monospace" font-size="18" font-weight="700">GUARDED: $104,820</text>
+  <text x="666" y="138" fill="#FF3300" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="700">UNGATED: $92,189 (-$12,631)</text>
+
+  <!-- Chart Grid & Curves -->
+  <rect x="666" y="156" width="258" height="190" fill="#141414" stroke="#333333" stroke-width="1"/>
+  <line x1="666" y1="250" x2="924" y2="250" stroke="#444444" stroke-dasharray="4 4"/>
+  <!-- Guarded Emerald Curve -->
+  <polyline fill="none" stroke="#00E676" stroke-width="3.5" points="676,250 715,240 755,232 795,222 835,225 875,208 914,192"/>
+  <!-- Ungated Orange Curve -->
+  <polyline fill="none" stroke="#FF3300" stroke-width="2.5" stroke-dasharray="6 4" points="676,250 715,240 755,268 795,262 835,312 875,326 914,320"/>
+
+  <rect x="666" y="362" width="258" height="138" fill="#1B1B1B" stroke="#00E676" stroke-width="1.5"/>
+  <text x="678" y="384" fill="#00E676" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">EMPIRICAL VALIDATION (4,769 BARS)</text>
+  <text x="678" y="406" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">• 190d Max DD: -7.97% vs -27.22%</text>
+  <text x="678" y="426" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">• Prevented 235 RSI Flip Errors</text>
+  <text x="678" y="446" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">• 12/12 QCA Skill ZIPs Validated</text>
+  <text x="678" y="466" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="11">• 36/36 Firefox QA Scenarios Pass</text>
+  <text x="678" y="486" fill="#FFC44D" font-family="IBM Plex Mono, monospace" font-size="10">• 8 AA Playbook Conflicts Resolved</text>
+</svg>

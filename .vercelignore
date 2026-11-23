@@ -1,0 +1,6 @@
+.momen-mcp
+node_modules
+.git
+evidence
+playwright-report
+test-results

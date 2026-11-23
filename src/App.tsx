@@ -587,6 +587,21 @@ export const App: React.FC = () => {
           <span className="status-pill live">
             AUDIT BUS: {wsFrames.length} FRAMES
           </span>
+          <a
+            href="./deck.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="status-pill"
+            style={{
+              color: "#0C0C0C",
+              background: "#00E676",
+              borderColor: "#00E676",
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            PRESENTATION DECK (10 SLIDES) ↗
+          </a>
         </div>
       </header>
 
@@ -1698,16 +1713,7 @@ export const App: React.FC = () => {
           </div>
 
           {/* Interactive QQQ / SPY Regime Simulator */}
-          <div
-            style={{
-              border: "2px solid #0C0C0C",
-              background: "var(--bg-cell)",
-              padding: "16px",
-              display: "grid",
-              gridTemplateColumns: "1fr 1.3fr",
-              gap: "18px",
-            }}
-          >
+          <div className="regime-simulator-grid">
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               <div
                 style={{

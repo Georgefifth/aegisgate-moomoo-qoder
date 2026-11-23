@@ -1,0 +1,320 @@
+{
+  "generatedAtUtc": "2026-11-23T13:54:02.350Z",
+  "sourceRepo": "https://github.com/MoomooOpen/moomoo-agent-hub.git",
+  "sourceCommit": "9e45546",
+  "qcaSchemaRule": "https://docs.qoder.com/cloud-agents/api/skills/schemas.md",
+  "totalSkills": 12,
+  "allValid": true,
+  "skills": [
+    {
+      "slug": "moomoo-crypto",
+      "category": "quote-trade-skills",
+      "version": "0.0.3",
+      "description": "moomoo CLI cryptocurrency trading skill for crypto accounts, balances, max quantity, crypto orders, and crypto fills; answer in the user",
+      "zipFile": "qca-skills/moomoo-crypto.zip",
+      "sizeBytes": 12287,
+      "fileCount": 7,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-crypto/SKILL.md",
+        "moomoo-crypto/references/cli-parameters.md",
+        "moomoo-crypto/references/dictionaries.md",
+        "moomoo-crypto/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-crypto/references/shared-docs/moomoo-install.md",
+        "moomoo-crypto/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-crypto/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-quote",
+      "category": "quote-trade-skills",
+      "version": "0.0.3",
+      "description": "moomoo CLI market data skill for stock, option, futures, quote, K-line, snapshot, ticker, order book, ranking, capital flow, company, financials, shareholders, valuation, plate, IPO, calendar, watchlist, and screening quote commands; not for trading orders.",
+      "zipFile": "qca-skills/moomoo-quote.zip",
+      "sizeBytes": 35192,
+      "fileCount": 9,
+      "repairedRelativeLinks": 1,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-quote/SKILL.md",
+        "moomoo-quote/references/cli-parameters.md",
+        "moomoo-quote/references/dictionaries.md",
+        "moomoo-quote/references/pagination.md",
+        "moomoo-quote/references/websocket-push.md",
+        "moomoo-quote/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-quote/references/shared-docs/moomoo-install.md",
+        "moomoo-quote/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-quote/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-sim-trading",
+      "category": "quote-trade-skills",
+      "version": "0.0.3",
+      "description": "moomoo CLI simulated trading skill for paper/sim accounts, simulated funds, positions, max quantity, simulated order placement, modification, cancellation, order queries, and history; not for real securities or crypto trading.",
+      "zipFile": "qca-skills/moomoo-sim-trading.zip",
+      "sizeBytes": 13810,
+      "fileCount": 7,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-sim-trading/SKILL.md",
+        "moomoo-sim-trading/references/cli-parameters.md",
+        "moomoo-sim-trading/references/dictionaries.md",
+        "moomoo-sim-trading/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-sim-trading/references/shared-docs/moomoo-install.md",
+        "moomoo-sim-trading/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-sim-trading/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-trading",
+      "category": "quote-trade-skills",
+      "version": "0.0.4",
+      "description": "moomoo CLI securities trading skill for OAuth status, accounts, funds, cash logs, order fees, margin ratio, positions, buy/sell/place/modify/cancel orders, order queries, fills, and max tradable quantity; answer in the user",
+      "zipFile": "qca-skills/moomoo-trading.zip",
+      "sizeBytes": 13049,
+      "fileCount": 7,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-trading/SKILL.md",
+        "moomoo-trading/references/cli-parameters.md",
+        "moomoo-trading/references/dictionaries.md",
+        "moomoo-trading/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-trading/references/shared-docs/moomoo-install.md",
+        "moomoo-trading/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-trading/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-comment-sentiment",
+      "category": "search-skills",
+      "version": "0.0.4",
+      "description": "Judges the BULLISH vs BEARISH sentiment / mood / 风向 of a stock by aggregating real-time moomoo community / feed / 帖子 / 评论 discussions for one or more user-specified symbols, filtering low-quality posts, classifying each post as bullish / bearish / neutral, and returning a structured community sentiment snapshot (single stock or multi-symbol portfolio). TRIGGER when: 情绪 / 社区情绪 / 散户情绪 / 看多看空 / 多空情绪 / 牛熊 / 看涨看跌 / 风向 / 讨论氛围 / 评论怎么看 / 大家怎么看 / bullish or bearish / sentiment / community mood / retail discussion tone. SKIP: news listing → moomoo-news-search; news interpretation/分析/研判 → moomoo-stock-digest; price/quote/K线/异动/trade. Bare ticker without sentiment keyword does NOT trigger.",
+      "zipFile": "qca-skills/moomoo-comment-sentiment.zip",
+      "sizeBytes": 14215,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-comment-sentiment/SKILL.md",
+        "moomoo-comment-sentiment/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-comment-sentiment/references/shared-docs/moomoo-install.md",
+        "moomoo-comment-sentiment/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-comment-sentiment/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-news-search",
+      "category": "search-skills",
+      "version": "0.0.3",
+      "description": "Searches moomoo news, notices, articles, announcements, and research reports for a user-specified stock or company — INFORMATION RETRIEVAL ONLY (a list of items; no interpretation, no summarization, no impact judgment). TRIGGER when: stock/company + news-intent keyword (新闻 / 消息 / 资讯 / 公告 / 研报 / 报道 / 头条 / 文章 / news / announcement / research report / headlines / latest update). Time qualifiers (最新/最近/近期/今日/latest/recent) + news word also trigger (e.g. \"腾讯最新新闻\", \"NVDA latest news\") — these are listing requests, NOT interpretation. SKIP: interpretation verbs (解读/分析/研判/总结/interpret/analyze/summarize) → moomoo-stock-digest; community sentiment/评论/讨论/散户情绪 → moomoo-comment-sentiment; bare ticker without news keyword; price/quote/K线/异动/trade.",
+      "zipFile": "qca-skills/moomoo-news-search.zip",
+      "sizeBytes": 9405,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-news-search/SKILL.md",
+        "moomoo-news-search/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-news-search/references/shared-docs/moomoo-install.md",
+        "moomoo-news-search/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-news-search/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-stock-digest",
+      "category": "search-skills",
+      "version": "0.0.4",
+      "description": "INTERPRETS the latest public news / 消息面 for ONE user-specified stock: extracts key events, judges impact direction (bullish/bearish/neutral/多空研判), returns a structured digest with evidence links. Output is ANALYSIS/CONCLUSION, not a raw news list. TRIGGER when: single stock + interpretation verb (解读/解析/分析/研判/怎么看/ 如何看/看法/点评/总结/摘要/归纳/概括/提炼/消息面分析/利好利空/多空研判/ interpret/analyze/summarize/digest/impact analysis/takeaway). SKIP: raw news listing (最新新闻/最新消息/latest news without interpretation verb) → moomoo-news-search; community sentiment/评论/情绪 → moomoo-comment-sentiment; bare ticker without interpretation verb; multiple stocks; price/quote/K线/异动/trade. Hard rule: 新闻/消息/news alone NEVER triggers — interpretation verb MUST be present.",
+      "zipFile": "qca-skills/moomoo-stock-digest.zip",
+      "sizeBytes": 11712,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-stock-digest/SKILL.md",
+        "moomoo-stock-digest/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-stock-digest/references/shared-docs/moomoo-install.md",
+        "moomoo-stock-digest/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-stock-digest/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-grid-strategy",
+      "category": "strategy-skills",
+      "version": "1.0.0",
+      "description": "Guides an AI to implement a single-symbol base-price grid program on moomoo OpenAPI: validate six parameter checks first, then write a restart-safe limit-order reconciliation loop, and accept it on a paper account. Use when the user wants a grid strategy, grid program, quantitative grid, or grid trading bot, or says 网格策略, 网格程序, 量化网格, 网格交易机器人, 实现网格, or 帮我写一个网格. Request fields follow the OpenAPI llms.md. This skill does not repeat request bodies. Paper account by default.",
+      "zipFile": "qca-skills/moomoo-grid-strategy.zip",
+      "sizeBytes": 12139,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-grid-strategy/SKILL.md",
+        "moomoo-grid-strategy/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-grid-strategy/references/shared-docs/moomoo-install.md",
+        "moomoo-grid-strategy/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-grid-strategy/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-unusual-capital-flows",
+      "category": "unusual-skills",
+      "version": "0.0.3",
+      "description": "Unusual Capital Flows (资金异动): detects capital-flow unusual signals for a user-mentioned stock with `get_financial_unusual`, including 资金分布、买卖经纪商、 资金流向、卖空数量、卖空比例 and their unusual changes. Use when the user asks about 资金动向、资金异动、净流入、净流出、主力行为、大单小单、谁在买谁在卖、买卖经纪商、 卖空异动、卖空/做空/沽空、主力是否在进场或离场，or gives a broad 异动 request such as “英伟达异动”、“NVDA 异动”、“腾讯有没有异动/异常” without narrowing the dimension. For broad 异动 requests, use together with `moomoo-unusual-technical-signal-alerts` and `moomoo-unusual-derivatives-activity`. Before calling the CLI, you must first normalize the user-mentioned stock name, Chinese company name, English company name, or ticker into a standard symbol such as `US.TSLA` or `HK.00700`.",
+      "zipFile": "qca-skills/moomoo-unusual-capital-flows.zip",
+      "sizeBytes": 10588,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-unusual-capital-flows/SKILL.md",
+        "moomoo-unusual-capital-flows/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-unusual-capital-flows/references/shared-docs/moomoo-install.md",
+        "moomoo-unusual-capital-flows/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-unusual-capital-flows/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-unusual-derivatives-activity",
+      "category": "unusual-skills",
+      "version": "0.0.3",
+      "description": "Unusual Derivatives Activity (衍生品异动): detects derivatives unusual signals for a user-mentioned stock with `get_derivative_unusual`, including 牛熊证街货比例、 牛熊证街货价格区间、期权大单、隐含波动率、期权量价、期权情绪、期权综合信号 and their unusual changes. Use when the user asks about 期权、衍生品、牛熊证、IV、隐含波动率、PCR、 期权大单、期权异常成交、聪明钱、smart money、unusual options activity、做多做空情绪、 波动率溢价、期权市场怎么看、有没有大单押注、大资金押注、适不适合卖期权，or gives a broad 异动 request such as “英伟达异动”、“NVDA 异动”、“腾讯有没有异动/异常” without narrowing the dimension. For broad 异动 requests, use together with `moomoo-unusual-technical-signal-alerts` and `moomoo-unusual-capital-flows`. Before calling the CLI, you must first normalize the user-mentioned stock name, Chinese company name, English company name, or ticker into a standard symbol such as `US.NVDA` or `HK.00700`.",
+      "zipFile": "qca-skills/moomoo-unusual-derivatives-activity.zip",
+      "sizeBytes": 11888,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-unusual-derivatives-activity/SKILL.md",
+        "moomoo-unusual-derivatives-activity/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-unusual-derivatives-activity/references/shared-docs/moomoo-install.md",
+        "moomoo-unusual-derivatives-activity/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-unusual-derivatives-activity/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "moomoo-unusual-technical-signal-alerts",
+      "category": "unusual-skills",
+      "version": "0.0.3",
+      "description": "Technical Signal Alerts (技术面异动): detects technical unusual signals for a user-mentioned stock with `get_technical_unusual`, including K线形态 and indicator events such as CCI, KDJ, RSI, BIAS, ARBR, VR, PSY, OSC, WMSR, MACD, BOLL, and MA. Use when the user asks about 技术面情况、最近有什么技术信号、K线形态、形态识别、形态突破、 金叉/死叉、超买超卖、MACD、RSI、KDJ、CCI、MA、BOLL、WMSR、VR、PSY、OSC、BIAS、ARBR， or gives a broad 异动 request such as “英伟达异动”、“NVDA 异动”、“腾讯有没有异动/异常” without narrowing the dimension. For broad 异动 requests, use together with `moomoo-unusual-capital-flows` and `moomoo-unusual-derivatives-activity`. Before calling the CLI, you must first normalize the user-mentioned stock name, Chinese company name, English company name, or ticker into a standard symbol such as `US.NVDA` or `HK.00700`.",
+      "zipFile": "qca-skills/moomoo-unusual-technical-signal-alerts.zip",
+      "sizeBytes": 10688,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "moomoo-unusual-technical-signal-alerts/SKILL.md",
+        "moomoo-unusual-technical-signal-alerts/references/shared-docs/migration-gaps-and-rest-api.md",
+        "moomoo-unusual-technical-signal-alerts/references/shared-docs/moomoo-install.md",
+        "moomoo-unusual-technical-signal-alerts/references/shared-docs/upgrade-from-opend.md",
+        "moomoo-unusual-technical-signal-alerts/references/shared-docs/websocket-quote-push.md"
+      ]
+    },
+    {
+      "slug": "aegisgate-r1-r11-risk-auditor",
+      "category": "skills",
+      "version": "1.0.0",
+      "description": "Deterministic R1-R11 Pre-Trade Risk Gate, Wilder-Smoothed Technical Validator, 3-Rung Limit Ladder Sizer, and Counterfactual Rejection Logger for the Moomoo x Qoder AI Trading Agent Challenge.",
+      "zipFile": "qca-skills/aegisgate-r1-r11-risk-auditor.zip",
+      "sizeBytes": 8879,
+      "fileCount": 5,
+      "repairedRelativeLinks": 0,
+      "validation": {
+        "zipIntegrity": "PASS",
+        "singleTopLevelFolder": "PASS",
+        "folderMatchesYamlName": "PASS",
+        "hasSkillMd": "PASS",
+        "hasFrontmatterNameAndDesc": "PASS",
+        "under50MB": "PASS"
+      },
+      "files": [
+        "aegisgate-r1-r11-risk-auditor/SKILL.md",
+        "aegisgate-r1-r11-risk-auditor/references/shared-docs/migration-gaps-and-rest-api.md",
+        "aegisgate-r1-r11-risk-auditor/references/shared-docs/moomoo-install.md",
+        "aegisgate-r1-r11-risk-auditor/references/shared-docs/upgrade-from-opend.md",
+        "aegisgate-r1-r11-risk-auditor/references/shared-docs/websocket-quote-push.md"
+      ]
+    }
+  ]
+}

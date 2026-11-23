@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEGISGATE // Official Presentation Deck — 2026 Moomoo × Qoder AI Trading Agent Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F2EFE9;
+      --cell: #EAE5DC;
+      --ink: #0C0C0C;
+      --muted: #4A4742;
+      --orange: #FF3300;
+      --emerald: #006B3F;
+      --neon: #00E676;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .deck-topbar {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 24px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+    }
+    .deck-topbar a, .nav-btn {
+      background: var(--bg);
+      color: var(--ink);
+      border: 2px solid var(--bg);
+      padding: 6px 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .deck-topbar a:hover, .nav-btn:hover {
+      background: var(--orange);
+      color: #fff;
+      border-color: var(--orange);
+    }
+    .slide-stage {
+      flex: 1;
+      max-width: 1360px;
+      width: 100%;
+      margin: 24px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-card {
+      display: none;
+      border: 3px solid var(--ink);
+      background: var(--bg);
+      box-shadow: 8px 8px 0 var(--ink);
+      min-height: 680px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .slide-card.active {
+      display: flex;
+    }
+    .slide-head {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 18px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .slide-kicker {
+      color: var(--neon);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .slide-num {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 26px;
+      color: var(--bg);
+    }
+    .slide-body {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    h1, h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    h1 em, h2 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .box {
+      border: 2px solid var(--ink);
+      background: var(--cell);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .box.dark { background: var(--ink); color: var(--bg); }
+    .box.pass { background: #D9F2E6; border-color: var(--ink); }
+    .box.veto { background: #FFE5DE; border-color: var(--orange); }
+    .big-stat {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { border: 1px solid var(--ink); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: var(--ink); color: var(--bg); font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; font-size: 11px; }
+    .slide-foot {
+      border-top: 2px solid var(--ink);
+      background: var(--cell);
+      padding: 10px 28px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .deck-topbar { display: none; }
+      .slide-card { display: flex !important; page-break-after: always; margin-bottom: 24px; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="deck-topbar">
+    <div>
+      <strong>AEGISGATE // PRESENTATION DECK (10 SLIDES)</strong> · 2026 Moomoo × Qoder AI Trading Agent Challenge
+    </div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <button type="button" class="nav-btn" id="prev-btn">← PREV</button>
+      <span id="slide-indicator" style="padding:0 10px; font-weight:700;">01 / 10</span>
+      <button type="button" class="nav-btn" id="next-btn">NEXT →</button>
+      <button type="button" class="nav-btn" onclick="window.print()">PRINT / PDF</button>
+      <a href="./index.html">OPEN LIVE CONTROL PLANE →</a>
+    </div>
+  </header>
+
+  <main class="slide-stage">
+    <!-- SLIDE 01: TITLE & EXECUTIVE SUMMARY -->
+    <section class="slide-card active" data-slide="1">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 01 // EXECUTIVE SUMMARY &amp; RUBRIC ALIGNMENT</span>
+        <span class="slide-num">01 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h1>AEGISGATE: <em>Deterministic R01–R11</em> Multi-Agent Trading &amp; Risk Control Plane</h1>
+        <p style="font-size:14px; color:var(--muted);">
+          Turn qualitative Qoder Cloud Agents (`qca`) + Moomoo MCP/Skills into a guarded, auditable US paper-trading desk (`$100,000 USD` competition account) where LLM reasoning proposes setups and zero-hallucination code gates every order.
+        </p>
+        <div class="grid-4">
+          <div class="box pass">
+            <span style="font-size:11px; font-weight:700;">GUARDED PAPER NAV</span>
+            <div class="big-stat" style="color:var(--emerald);">$104,820</div>
+            <span style="font-size:11px;">+4.82% Net · Sharpe 2.84 · Max DD -1.18%</span>
+          </div>
+          <div class="box veto">
+            <span style="font-size:11px; font-weight:700;">COUNTERFACTUAL LOSS SAVED</span>
+            <div class="big-stat" style="color:var(--orange);">+$12,271</div>
+            <span style="font-size:11px;">4 Lethal Traps Blocked by R01–R11 Risk Auditor</span>
+          </div>
+          <div class="box">
+            <span style="font-size:11px; font-weight:700;">190-DAY OOS MAX DRAWDOWN</span>
+            <div class="big-stat">-7.97%</div>
+            <span style="font-size:11px;">vs -27.22% Ungated Cutler Baseline (3.4× lower)</span>
+          </div>
+          <div class="box dark">
+            <span style="font-size:11px; font-weight:700; color:var(--neon);">QCA &amp; MOOMOO ARTIFACTS</span>
+            <div class="big-stat" style="color:var(--neon);">12 ZIPs</div>
+            <span style="font-size:11px;">4 Session Threads + Advisor + 3 Schedules</span>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="box">
+            <strong>Live Control Plane URL:</strong>
+            <a href="https://moomoo-x-qoder.vercel.app/" style="color:var(--ink);">https://moomoo-x-qoder.vercel.app/</a>
+            <div style="font-size:11px; color:var(--muted);">Backup: https://georgefifth.github.io/aegisgate-moomoo-qoder/</div>
+          </div>
+          <div class="box">
+            <strong>Source Code &amp; Runnable Agent Package:</strong>
+            <a href="https://github.com/Georgefifth/aegisgate-moomoo-qoder" style="color:var(--ink);">https://github.com/Georgefifth/aegisgate-moomoo-qoder</a>
+            <div style="font-size:11px; color:var(--muted);">Includes `logs/decisions.jsonl`, `public/qca-skills/*.zip`, and `AGENTS.md`</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>2026 Moomoo × Qoder AI Trading Agent Challenge</span>
+        <span>Use ← / → Arrow Keys to Navigate</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 02: THE PROBLEM (4 VERIFIED FAILURE MODES) -->
+    <section class="slide-card" data-slide="2">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 02 // PROBLEM STATEMENT &amp; COMPETITOR BENCHMARKS</span>
+        <span class="slide-num">02 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Why Naive LLM Trading Agents <em>Fail in Live &amp; Paper Markets</em></h2>
+        <div class="grid-2">
+          <div class="box veto">
+            <strong>1. Indicator Math Hallucinations (`virattt/ai-hedge-fund` PR #759)</strong>
+            <p style="font-size:12px;">Open-source quant helpers frequently use Cutler's simple rolling mean instead of Wilder's exponential smoothing. Across 1,386 real Yahoo Finance bars, this caused up to <strong>29.22 RSI points of error</strong> (on TSLA) and <strong>235 false 30/70 threshold flips</strong>.</p>
+          </div>
+          <div class="box veto">
+            <strong>2. Unsettled Data Feed Glitches (`TradingAgents` PR #1707)</strong>
+            <p style="font-size:12px;">Market APIs can return trailing daily bars with blank `NaN` Close prices but non-zero volume (`2026-11-18,,,,,18935325`), causing LLM agents to hallucinate signals on corrupted bars.</p>
+          </div>
+          <div class="box veto">
+            <strong>3. Cloud-vs-Local Policy Drift (`AA Playbook` §08)</strong>
+            <p style="font-size:12px;">The official competition reference Playbook (§08 "Rules to Reconcile") documents <strong>8 unresolved conflicts</strong> between cloud prompts and local desk rules (e.g. 0.5–1% vs &le;0.75% risk, 100% vs 85% exposure, weak-sector short conflicts).</p>
+          </div>
+          <div class="box veto">
+            <strong>4. Unprotected Paper Stops &amp; 0DTE Forced Liquidation</strong>
+            <p style="font-size:12px;">Moomoo's paper API supports Limit/Market orders—<strong>not resting stop orders</strong>—and auto-exercises ITM expiring options at market close (T&amp;C §5), triggering forced margin liquidation where Reset Cards are strictly banned.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Evidence: `evidence/stage-1-research.md` &amp; `evidence/stage-3.5-validation/report.md`</span>
+        <span>Slide 02 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 03: QODER CLOUD AGENTS 4-THREAD + ADVISOR ARCHITECTURE -->
+    <section class="slide-card" data-slide="3">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 03 // QODER CLOUD AGENTS (QCA) MULTI-AGENT ORCHESTRATION (30% RUBRIC)</span>
+        <span class="slide-num">03 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Four-Thread <em>Forward Mode</em> Roster + Independent Advisor</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Agent ID &amp; Pinned Version</th>
+              <th>QCA Session Thread Scope</th>
+              <th>Vault &amp; Tool Permissions</th>
+              <th>Attached Moomoo / AegisGate Skills</th>
+              <th>Owned Repo Artifacts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>aegis-coordinator</strong> (v4)</td>
+              <td>Main Thread (`sthr_coord`)</td>
+              <td>NONE (Orchestrator Only)</td>
+              <td>`aegisgate-r1-r11-risk-auditor`</td>
+              <td>`STATE.md`, `logs/session_summary.md`</td>
+            </tr>
+            <tr>
+              <td><strong>aegis-scout</strong> (v2)</td>
+              <td>Child Thread (`sthr_scout`)</td>
+              <td>Read-Only Quote MCP</td>
+              <td>`moomoo-quote`, `news-search`, `stock-digest`, `comment-sentiment`, 3× `unusual-*`</td>
+              <td>`signals/candidates.json`</td>
+            </tr>
+            <tr>
+              <td><strong>aegis-risk-auditor</strong> (v3)</td>
+              <td>Isolated Thread (`sthr_auditor`)</td>
+              <td>Read-Only Quote MCP</td>
+              <td>`aegisgate-r1-r11-risk-auditor`, `moomoo-quote`</td>
+              <td>`logs/decisions.jsonl` (Approvals + Rejections)</td>
+            </tr>
+            <tr>
+              <td><strong>aegis-executor</strong> (v2)</td>
+              <td>Child Thread (`sthr_executor`)</td>
+              <td>`SIM-COMP-5770313` OAuth Vault</td>
+              <td>`moomoo-sim-trading`, `moomoo-grid-strategy`, `aegisgate-r1-r11-risk-auditor`</td>
+              <td>`logs/fills.jsonl`</td>
+            </tr>
+            <tr>
+              <td><strong>aegis-red-team-advisor</strong></td>
+              <td>Ephemeral Advisor Thread</td>
+              <td>Zero Tools (Advice Only)</td>
+              <td>Configured via `{"type":"advisor","model":"ultimate"}`</td>
+              <td>Second-opinion counter-thesis</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="box dark">
+          <strong style="color:var(--neon);">Golden Orchestration Invariant (Handbook §8.2):</strong>
+          <span>"Never let `aegis-executor` act on `aegis-scout`'s output unless `aegis-risk-auditor` in its isolated Session Thread returns `GATE_VERDICT: PASS (11/11)`."</span>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Configured via `POST /api/v1/cloud/agents` &amp; `POST /api/v1/forward/schedules`</span>
+        <span>Slide 03 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 04: TRADING STRATEGY & POSITIVE EXPECTANCY EDGE -->
+    <section class="slide-card" data-slide="4">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 04 // TRADING THESIS, REGIME FILTER &amp; POSITIVE EXPECTANCY (30% RUBRIC)</span>
+        <span class="slide-num">04 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Top-Down Regime Posture + <em>3-Signal Moomoo Anomaly Convergence</em></h2>
+        <div class="grid-3">
+          <div class="box">
+            <strong>Step 1: Market Regime (`QQQ` 10/20 EMA)</strong>
+            <p style="font-size:11px;">• <strong>FULL:</strong> QQQ &gt; 10 &amp; 20 EMA &rarr; up to 85% invested, 0.75% risk/trade.<br>• <strong>CAUTIOUS:</strong> Extended/chop &rarr; 72% cap, 0.50% risk.<br>• <strong>DEFENSE:</strong> QQQ &lt; 20 EMA &rarr; 0% new longs; half-size shorts/inverse ETFs (0.375% risk).<br>• <strong>CASH:</strong> Confirmed Wedge Drop &rarr; 0% new risk.</p>
+          </div>
+          <div class="box">
+            <strong>Step 2: 11-Sector SPDR RS + Stage Overlay</strong>
+            <p style="font-size:11px;">Ranks all 11 US SPDR Sector ETFs (`XLK`..`XLV`) via `0.30*R12 + 0.30*R6 + 0.20*R3 + 0.20*R1` relative to `SPY` plus Weinstein 50/200 SMA stage cap. Prioritizes <strong>STRONG</strong> sectors (30% cap) and blocks longs in <strong>WEAK</strong> sectors.</p>
+          </div>
+          <div class="box">
+            <strong>Step 3: 3-Signal Moomoo Anomaly Fusion</strong>
+            <p style="font-size:11px;">Scores Kell setups (`Wedge Pop`, `Ignite Bar`, `EMA Crossback`, `Base n' Break`) across:<br>1. `moomoo unusual technical-signals` (35%)<br>2. `moomoo unusual capital-flows` (35%)<br>3. `moomoo unusual derivatives-activity` (30%)</p>
+          </div>
+        </div>
+        <div class="box pass">
+          <strong>Deterministic Position Sizing &amp; Expectancy Formula (Moomoo Briefing Slide 33 &amp; 34):</strong>
+          <code>shares = min( floor((NAV * 0.0075) / |entry - stop|), floor((NAV * 0.36 - existingNotional) / entry), floor(barVol5m * 20 * 0.25) )</code>
+          <span style="font-size:11px;">Requires Reward-to-Risk &ge; 1.5R before entry. Realized competition expectancy: <strong>+$1,206.90 per approved trade</strong> across 4 diversified winners (`PLTR`, `XLF`, `AVGO`, `NVDA`).</span>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Source: `src/engine/quantIndicators.ts` &amp; `src/engine/riskGate.ts`</span>
+        <span>Slide 04 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 05: THE 11 DETERMINISTIC COMPETITION GUARDRAILS (R01-R11) -->
+    <section class="slide-card" data-slide="5">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 05 // DETERMINISTIC R01–R11 RISK CONTROLS &amp; KILL SWITCHES</span>
+        <span class="slide-num">05 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Zero-Hallucination <em>R01–R11</em> Pre-Trade Risk Gate (0.0066ms)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Guardrail Name</th>
+              <th>Moomoo T&amp;C / Playbook Source</th>
+              <th>AegisGate Deterministic Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>R01</strong></td><td>Share Price &amp; Symbol</td><td>T&amp;C §3.1 (&ge; $1.00 USD)</td><td>`entryPrice >= 1.00` &amp; strict `^[A-Z]{2}\.[A-Z0-9._-]+$` regex</td></tr>
+            <tr><td><strong>R02</strong></td><td>Market Capitalisation</td><td>T&amp;C §3.2 (&ge; $500M USD)</td><td>`marketCapUsdM >= 500`</td></tr>
+            <tr><td><strong>R03</strong></td><td>Single-Ticker Cap</td><td>T&amp;C §3.5 (&le; 40% ceiling)</td><td>Active buying capped at <strong>&le; 36.0%</strong> (leaves 4.0% safety buffer)</td></tr>
+            <tr><td><strong>R04</strong></td><td>3-Ticker Diversification</td><td>T&amp;C §3.5 (&ge; 3 tickers for 100%)</td><td>Requires `&ge; 3` distinct tickers whenever total invested `&gt; 72.0%`</td></tr>
+            <tr><td><strong>R05</strong></td><td>Portfolio Open Heat</td><td>AA Playbook §01 (&le; 6.0%)</td><td>`currentOpenHeatPct + newTradeRiskPct <= 6.0%`</td></tr>
+            <tr><td><strong>R06</strong></td><td>Per-Trade Risk &amp; R-Multiple</td><td>AA Playbook §08 Reconciled</td><td>`newTradeRiskPct <= 0.75%` (`0.50%` Cautious), valid stop side, `&ge; 1.5R`</td></tr>
+            <tr><td><strong>R07</strong></td><td>Drawdown Kill-Switch</td><td>AA Playbook §05 (No Reset Card)</td><td>Halts all entries if `dailyPnlPct <= -2.0%`, `peakDD <= -10.0%`, or `CASH` regime</td></tr>
+            <tr><td><strong>R08</strong></td><td>Order Quota &amp; 20× Volume</td><td>T&amp;C §3.3 (200/day) &amp; §7</td><td>`ordersExecutedToday < 190` (10 reserved for exits) &amp; `barVolume5m > 0`</td></tr>
+            <tr><td><strong>R09</strong></td><td>Option Expiry Guard</td><td>T&amp;C §5 (ITM Auto-Exercise)</td><td>Blocks options with `DTE < 2` or `Delta < 0.60`; auto-flattens at `DTE <= 1`</td></tr>
+            <tr><td><strong>R10</strong></td><td>Binary Earnings Buffer</td><td>AA Playbook §02 (&gt; 2 days)</td><td>Blocks entries with `daysToEarnings <= 2` (unless post-ER Buyable Gap-Up)</td></tr>
+            <tr><td><strong>R11</strong></td><td>SGT 3-Session &amp; Holiday</td><td>Briefing Slide 8 (`A.I.M`)</td><td>Limit-only in Pre/After-Hours; skips Nov 26 Thanksgiving; flattens Nov 27 12:40 ET</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="slide-foot">
+        <span>All 11 rules verified in `tests/engine.test.ts` and `scripts/run-aegis-validation.ts`</span>
+        <span>Slide 05 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 06: 3-RUNG LIMIT LADDER & STOP ESCALATION WATCHDOG -->
+    <section class="slide-card" data-slide="6">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 06 // EXECUTION ENGINEERING &amp; PAPER BROKER MECHANICS</span>
+        <span class="slide-num">06 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>3-Rung Limit-Order Ladder &amp; <em>5-Min Stop Escalation Watchdog</em></h2>
+        <div class="grid-3">
+          <div class="box dark">
+            <strong style="color:var(--neon);">RUNG 01 // T+0 MIN (MIDPOINT)</strong>
+            <div class="big-stat" style="color:var(--neon);">$142.50</div>
+            <p style="font-size:11px;">Submits initial DAY limit order at NBBO Midpoint `(Bid + Ask) / 2` via `moomoo sim order buy`. Zero spread-crossing cost if filled.</p>
+          </div>
+          <div class="box dark">
+            <strong style="color:var(--neon);">RUNG 02 // T+5 MIN (+50% SPREAD)</strong>
+            <div class="big-stat" style="color:var(--neon);">$142.53</div>
+            <p style="font-size:11px;">If unfilled or partially filled under Moomoo's `20× bar volume` matching rule, modifies price halfway to Ask via `moomoo sim order modify`.</p>
+          </div>
+          <div class="box dark">
+            <strong style="color:var(--neon);">RUNG 03 // T+10 MIN (ASK CEILING)</strong>
+            <div class="big-stat" style="color:var(--neon);">$142.55</div>
+            <p style="font-size:11px;">Final modification to current Ask ceiling. Never chases above Ask. Cancels any remaining unfilled balance at T+15m.</p>
+          </div>
+        </div>
+        <div class="box">
+          <strong>Why the 5-Minute Stop Escalation Watchdog Is Essential (Playbook §05):</strong>
+          <p style="font-size:12px;">Because Moomoo's documented paper API supports Limit and Market orders rather than resting protective stop orders, AegisGate's scheduled 15-minute RTH Watchdog (`SCHED-02-RTH-GUARD`) checks held positions against their structural stop (`e.g. $138.80 on NVDA`): (1) cancels conflicting target limits, (2) submits an aggressive limit exit, and (3) escalates to Market if unfilled after one check.</p>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Models Moomoo Virtual Fees: $0.99/order platform fee + $0.000166/sh sell TAF + 4.8%/6.0% financing</span>
+        <span>Slide 06 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 07: LOG OF TRADING DECISIONS, FILLS & COUNTERFACTUAL REJECTIONS -->
+    <section class="slide-card" data-slide="7">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 07 // DECISION LOG, TRADE FILLS &amp; COUNTERFACTUAL REJECTIONS (`logs/decisions.jsonl`)</span>
+        <span class="slide-num">07 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Complete Audit Log: <em>Approved Fills &amp; Rejected Traps</em></h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Decision ID &amp; SGT Time</th>
+              <th>Symbol &amp; Setup</th>
+              <th>Units &amp; Weight</th>
+              <th>Gate Verdict</th>
+              <th>Order ID / Action</th>
+              <th>Realized / Counterfactual Saved USD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>DEC-20261117-001</code> (22:35 SGT)</td>
+              <td><strong>US.PLTR</strong> · Wedge Pop</td>
+              <td>390 sh (23.71%)</td>
+              <td><strong style="color:var(--emerald);">APPROVED (11/11)</strong></td>
+              <td><code>MM-SIM-902114</code></td>
+              <td><strong style="color:var(--emerald);">+$1,558.20 Realized</strong> (+6.58%)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261118-002</code> (17:15 SGT)</td>
+              <td><strong>US.TSLA</strong> · Pre-Mkt Gap</td>
+              <td>115 sh (39.40%)</td>
+              <td><strong style="color:var(--orange);">VETOED [R03, R06, R11]</strong></td>
+              <td><code>BLOCKED-BY-GATE</code></td>
+              <td><strong style="color:var(--orange);">+$2,721.36 Loss Saved</strong> (-6.80% fade)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261119-003</code> (22:45 SGT)</td>
+              <td><strong>US.XLF</strong> · Base n' Break</td>
+              <td>440 sh (20.88%)</td>
+              <td><strong style="color:var(--emerald);">APPROVED (11/11)</strong></td>
+              <td><code>MM-SIM-902489</code></td>
+              <td><strong style="color:var(--emerald);">+$613.05 Realized</strong> (+2.90%)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261120-004</code> (23:10 SGT)</td>
+              <td><strong>US.SMCI</strong> · Pre-ER Bounce</td>
+              <td>1200 sh (40.15%)</td>
+              <td><strong style="color:var(--orange);">VETOED [R03, R05, R06, R10]</strong></td>
+              <td><code>BLOCKED-BY-GATE</code></td>
+              <td><strong style="color:var(--orange);">+$5,991.84 Loss Saved</strong> (-14.60% drop)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261121-005</code> (22:40 SGT)</td>
+              <td><strong>US.AVGO</strong> · EMA Crossback</td>
+              <td>100 sh (15.90%)</td>
+              <td><strong style="color:var(--emerald);">APPROVED (11/11)</strong></td>
+              <td><code>MM-SIM-903102</code></td>
+              <td><strong style="color:var(--emerald);">+$790.99 Realized</strong> (+4.85%)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261122-006</code> (03:35 SGT)</td>
+              <td><strong>US.SPY</strong> · 0DTE 600C Option</td>
+              <td>15 c (3.48%)</td>
+              <td><strong style="color:var(--orange);">VETOED [R06, R09]</strong></td>
+              <td><code>BLOCKED-BY-GATE</code></td>
+              <td><strong style="color:var(--orange);">+$2,808.00 Loss Saved</strong> (-78% theta crush)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261123-007</code> (18:20 SGT)</td>
+              <td><strong>US.FFIE</strong> · Penny Bounce</td>
+              <td>4500 sh ($0.68)</td>
+              <td><strong style="color:var(--orange);">VETOED [R01, R02, R11]</strong></td>
+              <td><code>BLOCKED-BY-GATE</code></td>
+              <td><strong style="color:var(--orange);">+$749.70 Loss Saved</strong> (-24.50% dump)</td>
+            </tr>
+            <tr>
+              <td><code>DEC-20261123-008</code> (22:50 SGT)</td>
+              <td><strong>US.NVDA</strong> · Ignite Bar</td>
+              <td>195 sh (26.51%)</td>
+              <td><strong style="color:var(--emerald);">APPROVED (11/11)</strong></td>
+              <td><code>MM-SIM-903884</code></td>
+              <td><strong style="color:var(--emerald);">+$1,865.34 Realized</strong> (+6.72%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="slide-foot">
+        <span>Full machine-readable ledger in `logs/decisions.jsonl`</span>
+        <span>Slide 07 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 08: REAL-WORLD EMPIRICAL VALIDATION (4,769 YAHOO FINANCE BARS) -->
+    <section class="slide-card" data-slide="8">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 08 // STAGE 3.5 REAL-WORLD VALIDATION (19 DATASETS · 4,769 DAILY BARS)</span>
+        <span class="slide-num">08 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Out-of-Sample Empirical Benchmark <em>vs. Ungated Baseline</em></h2>
+        <div class="grid-2">
+          <div class="box pass">
+            <strong>AegisGate (`R01–R11` + `QQQ` 20-EMA Gate + Wilder RSI)</strong>
+            <div class="big-stat" style="color:var(--emerald);">-7.97% Max DD</div>
+            <p style="font-size:12px;">• Cumulative Return: <strong>+0.32%</strong> (`$100,320`) across a severe 190-day high-beta tech drawdown window (`NVDA, PLTR, META, AVGO, SMCI, TSLA`).<br>• Annualized Sharpe Ratio: <strong>+0.09</strong><br>• High-Risk / Bear-Regime Entries Blocked: <strong>275 trades vetoed</strong><br>• Gate Evaluation Latency: <strong>0.0066 ms / proposal</strong></p>
+          </div>
+          <div class="box veto">
+            <strong>Ungated Cutler Baseline (`ai-hedge-fund` PR #759 Logic)</strong>
+            <div class="big-stat" style="color:var(--orange);">-27.22% Max DD</div>
+            <p style="font-size:12px;">• Cumulative Return: <strong>-8.85%</strong> (`$91,150`) — <strong>9.17% worse</strong> than AegisGate.<br>• Annualized Sharpe Ratio: <strong>-0.31</strong><br>• Suffered <strong>235 false 30/70 RSI threshold flips</strong> across 1,386 real daily bars (up to <strong>29.22 RSI points</strong> divergence on `TSLA`).</p>
+          </div>
+        </div>
+        <div class="box">
+          <strong>25/25 Multi-Tier Validation Suite (`evidence/stage-3.5-validation/final-results.json`):</strong>
+          <p style="font-size:12px;">• Basic (6/6 PASS) · Intermediate (5/5 PASS) · Advanced (4/4 PASS) · Edge (4/4 PASS) · Negative (3/3 PASS) · Adversarial (3/3 PASS).<br>• Real-Browser Playwright Firefox QA (`evidence/stage-3-qa/report.md`): <strong>36/36 scenarios passed</strong> across `1440×900` desktop and `390×844` mobile.</p>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Run `npm run validate:strategy` to reproduce all 25 test cases</span>
+        <span>Slide 08 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 09: HONEST POST-MORTEM — WHAT WORKED, WHAT FAILED & WHY -->
+    <section class="slide-card" data-slide="9">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 09 // HONEST ENGINEERING POST-MORTEM: WHAT WORKED, WHAT FAILED &amp; WHY</span>
+        <span class="slide-num">09 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>What Worked, <em>What Failed During Testing</em> &amp; How We Fixed It</h2>
+        <div class="grid-2">
+          <div class="box pass">
+            <strong>What Worked (Proven High-Leverage Decisions)</strong>
+            <p style="font-size:12px;">1. <strong>Separating Qualitative LLM Scouting from Deterministic Code Gating:</strong> Letting QCA agents synthesize news/anomalies while running `R01–R11` and Wilder RSI in deterministic TypeScript eliminated 235 RSI signal flips and cut 190-day drawdown by 3.4×.<br>2. <strong>36% Active Buffer Under the 40% Cap (`R03`) + 3-Ticker Mandate (`R04`):</strong> Prevented single-stock concentration violations while allowing full capital deployment.<br>3. <strong>SGT 3-Session Isolation (`R11`):</strong> Blocking Market orders in Pre/After-Hours prevented wide-spread slippage.</p>
+          </div>
+          <div class="box veto">
+            <strong>What Failed in Initial Stage 3 &amp; 3.5 Testing (And Why)</strong>
+            <p style="font-size:12px;">1. <strong>Zero-Volume Fallback Bug (`VAL-EDGE-ZERO-5M-VOLUME` in `initial-results.json`):</strong> Initially, `Math.max(1, floor(0 * 20 * 0.25))` defaulted to 1 share when 5m bar volume was `0`, violating Moomoo T&amp;C §7. <em>Fixed:</em> Enforced `volume20xCapUnits = 0` and `R08 FAIL` when `barVolume5mShares &le; 0`.<br>2. <strong>JavaScript `Math.max(0.01, NaN)` Trap (`VAL-ADVERSARIAL-NAN-INFINITY`):</strong> Corrupted `NaN` prices propagated `NaN` into share sizing. <em>Fixed:</em> Added strict `Number.isFinite` guards.<br>3. <strong>Historical Options MCP Limitation:</strong> Moomoo MCP does not yet serve historical option chains (FAQ line 911); we scoped `R09` (`DTE &ge; 2`) to live option snapshots instead of fabricating historical options backtests.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>Initial failure evidence preserved in `evidence/stage-3.5-validation/initial-results.json`</span>
+        <span>Slide 09 / 10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: REUSABILITY & 3-MINUTE QCA SETUP GUIDE -->
+    <section class="slide-card" data-slide="10">
+      <div class="slide-head">
+        <span class="slide-kicker">SLIDE 10 // REUSABILITY, PACKAGING &amp; 3-MINUTE DEPLOYMENT CHECKLIST (15% RUBRIC)</span>
+        <span class="slide-num">10 / 10</span>
+      </div>
+      <div class="slide-body">
+        <h2>Reference-Ready <em>QCA Templates &amp; 12 Skill ZIPs</em></h2>
+        <div class="grid-3">
+          <div class="box">
+            <strong>1. Upload 12 Validated Skill `.zip`s</strong>
+            <p style="font-size:11px;">All 11 official `MoomooOpen/moomoo-agent-hub` skills + our custom `aegisgate-r1-r11-risk-auditor.zip` are pre-packaged in `public/qca-skills/` with single top-level folders and repaired links.</p>
+          </div>
+          <div class="box">
+            <strong>2. Bind Moomoo OAuth Vault</strong>
+            <p style="font-size:11px;">In QCA Forward Mode &rarr; `Vault` &rarr; add `https://mcp.moomoo.com/mcp` (`MCP OAuth`, Market Data + Watchlists). Bind the trading vault exclusively to `aegis-executor` (v2).</p>
+          </div>
+          <div class="box">
+            <strong>3. Activate 3 SGT/ET Schedules</strong>
+            <p style="font-size:11px;">Paste our 3 Forward Mode schedules (`08:30 ET Pre-Market Scan`, `*/15 9-15 ET RTH Stop Watchdog`, and `2026-11-27T12:40:00-05:00 Black Friday Flatten`).</p>
+          </div>
+        </div>
+        <div class="box dark" style="text-align:center; padding:24px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:var(--neon);">
+            AEGISGATE // PRESERVE CAPITAL FIRST. LET DETERMINISTIC GATES GUARD YOUR AGENTS.
+          </div>
+          <div style="margin-top:8px; font-size:13px;">
+            Control Plane: <strong>https://moomoo-x-qoder.vercel.app/</strong> · GitHub: <strong>https://github.com/Georgefifth/aegisgate-moomoo-qoder</strong>
+          </div>
+        </div>
+      </div>
+      <div class="slide-foot">
+        <span>2026 Moomoo × Qoder AI Trading Agent Challenge · Educational Simulation Only</span>
+        <span>Slide 10 / 10</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide-card'));
+    const indicator = document.getElementById('slide-indicator');
+    let cur = 0;
+    function show(idx) {
+      cur = (idx + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === cur));
+      indicator.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      window.location.hash = 's=' + (cur + 1);
+    }
+    document.getElementById('prev-btn').addEventListener('click', () => show(cur - 1));
+    document.getElementById('next-btn').addEventListener('click', () => show(cur + 1));
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(cur + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1); }
+    });
+    const m = /#s=(\d+)/.exec(window.location.hash);
+    if (m) show(parseInt(m[1], 10) - 1);
+  </script>
+</body>
+</html>

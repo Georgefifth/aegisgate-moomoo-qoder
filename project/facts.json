@@ -1,0 +1,69 @@
+{
+  "project_name": "AegisGate — Moomoo x Qoder AI Trading Agent Control Plane",
+  "last_updated": "2026-11-23",
+  "facts": [
+    {
+      "fact_id": "fact_r1_r11_gate",
+      "claim": "AegisGate enforces 11 deterministic pre-trade competition risk rules (R01-R11) in 0.0066ms per evaluation and reconciles all 8 AA Trading Desk Playbook §08 policy conflicts",
+      "status": "verified",
+      "evidence": [
+        "../../Hack/moomoo-x-qoder/src/engine/riskGate.ts",
+        "../../Hack/moomoo-x-qoder/evidence/stage-3.5-validation/final-results.json",
+        "public/images/aegisgate_hero.svg"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_wilder_vs_cutler_rsi",
+      "claim": "Across 1,386 real Yahoo Finance daily bars, Wilder RSI prevented 235 false 30/70 threshold flips and up to 29.22 RSI points of Cutler simple-mean divergence",
+      "status": "verified",
+      "evidence": [
+        "../../Hack/moomoo-x-qoder/src/engine/quantIndicators.ts",
+        "../../Hack/moomoo-x-qoder/evidence/stage-3.5-validation/report.md"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_190d_backtest_drawdown",
+      "claim": "In a 190-day out-of-sample rolling test on 6 US stocks, AegisGate reduced Maximum Drawdown from 27.22% (Ungated Cutler baseline) to 7.97% while blocking 275 high-risk entries",
+      "status": "verified",
+      "evidence": [
+        "../../Hack/moomoo-x-qoder/evidence/stage-3.5-validation/final-results.json",
+        "../../Hack/moomoo-x-qoder/evidence/stage-3.5-validation/report.md"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_qca_12_skills_packaged",
+      "claim": "Packaged and validated 12 Qoder Cloud Agents (QCA) Skill .zip archives (11 official Moomoo skills + 1 custom AegisGate R01-R11 Auditor skill) plus 4-Thread Coordinator & 3 Forward Mode schedules",
+      "status": "verified",
+      "evidence": [
+        "../../Hack/moomoo-x-qoder/public/qca-skills/manifest.json",
+        "public/models/aegisgate_architecture.svg"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_playwright_36_36_qa",
+      "claim": "Verified 36/36 real-browser Playwright Firefox QA scenarios across desktop (1440x900) and mobile (390x844) on both deployed and local builds",
+      "status": "verified",
+      "evidence": [
+        "../../Hack/moomoo-x-qoder/evidence/stage-3-qa/report.md",
+        "../../Hack/moomoo-x-qoder/evidence/stage-3-qa/results.json"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_unverified_historical_options_mcp",
+      "claim": "Multi-year historical options chain backtesting via Moomoo MCP",
+      "status": "unverified",
+      "evidence": [],
+      "allowed_in_video": false,
+      "forbidden_phrases": [
+        "multi-year historical options backtest via moomoo mcp",
+        "guaranteed live trading profits",
+        "risk-free options arbitrage"
+      ]
+    }
+  ]
+}

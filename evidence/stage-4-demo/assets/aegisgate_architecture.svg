@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#F2EFE9" stroke="#0C0C0C" stroke-width="4"/>
+  <text x="30" y="42" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">AEGISGATE // 4-THREAD QCA FORWARD MODE &amp; R01–R11 GATE ARCHITECTURE</text>
+
+  <!-- Layer 1: Coordinator + Advisor -->
+  <rect x="30" y="64" width="840" height="90" fill="#0C0C0C"/>
+  <text x="50" y="94" fill="#00E676" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">LAYER 01 // QCA COORDINATOR (`aegis-coordinator` v4) + INDEPENDENT RED-TEAM ADVISOR</text>
+  <text x="50" y="118" fill="#F2EFE9" font-family="IBM Plex Mono, monospace" font-size="12">Routes SGT 3-Session Windows (17:00 Pre, 22:30 RTH, 05:00 Post) · Skips Nov 26 · Enforces Nov 27 Early Flatten</text>
+  <text x="50" y="138" fill="#FFC44D" font-family="IBM Plex Mono, monospace" font-size="11">Golden Invariant: Executor is NEVER called unless Risk Auditor emits GATE_VERDICT: PASS (11/11)</text>
+
+  <!-- Layer 2: Scout Researcher -->
+  <rect x="30" y="172" width="840" height="96" fill="#EAE5DC" stroke="#0C0C0C" stroke-width="3"/>
+  <text x="50" y="200" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">LAYER 02 // SCOUT RESEARCHER (`aegis-scout` v2 · Zero Order Permissions)</text>
+  <text x="50" y="224" fill="#0C0C0C" font-family="IBM Plex Mono, monospace" font-size="12">Skills: moomoo-quote, news-search, stock-digest, comment-sentiment, unusual-technical/capital/derivatives</text>
+  <text x="50" y="246" fill="#006B3F" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700">Computes Wilder RSI-14, ATR-14, QQQ 20-EMA Regime &amp; 11-Sector SPDR Relative Strength -> signals/candidates.json</text>
+
+  <!-- Layer 3: Deterministic R01-R11 Risk Auditor -->
+  <rect x="30" y="286" width="840" height="104" fill="#FFE5DE" stroke="#FF3300" stroke-width="3"/>
+  <text x="50" y="314" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">LAYER 03 // ISOLATED DETERMINISTIC RISK AUDITOR (`aegis-risk-auditor` v3 · 0.0066ms Gate)</text>
+  <text x="50" y="338" fill="#0C0C0C" font-family="IBM Plex Mono, monospace" font-size="12">Enforces R01 ($1), R02 ($500M), R03 (&lt;=36% Cap), R04 (&gt;=3 Tickers), R05 (&lt;=6% Heat), R06 (&lt;=0.75% Risk),</text>
+  <text x="50" y="358" fill="#0C0C0C" font-family="IBM Plex Mono, monospace" font-size="12">R07 (&gt;-2% Daily DD), R08 (&lt;190/200 Orders), R09 (Option DTE&gt;=2), R10 (ER&gt;2d), R11 (SGT Session/Holiday Guard)</text>
+  <text x="50" y="378" fill="#FF3300" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700">Logs ALL Approved &amp; Rejected Proposals -> logs/decisions.jsonl + Counterfactual Saved Drawdown Scope</text>
+
+  <!-- Layer 4: 3-Rung Limit Ladder Executor -->
+  <rect x="30" y="408" width="840" height="88" fill="#D9F2E6" stroke="#0C0C0C" stroke-width="3"/>
+  <text x="50" y="436" fill="#0C0C0C" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">LAYER 04 // ORDER EXECUTOR (`aegis-executor` v2 · Dedicated SIM-COMP-5770313 Vault)</text>
+  <text x="50" y="460" fill="#0C0C0C" font-family="IBM Plex Mono, monospace" font-size="12">3-Rung Limit-Order Walk (Midpoint -> +50% Spread -> Ask Cap) · 20x Bar Volume Check · 5m Stop Escalation Watchdog</text>
+  <text x="50" y="480" fill="#006B3F" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700">Skills: moomoo-sim-trading, moomoo-grid-strategy, aegisgate-r1-r11-risk-auditor -> logs/fills.jsonl</text>
+</svg>

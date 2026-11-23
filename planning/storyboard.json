@@ -1,0 +1,516 @@
+{
+  "project_name": "AegisGate // Moomoo x Qoder AI Trading Agent",
+  "tagline": "Deterministic R01–R11 Multi-Agent Trading, Risk Auditing & Counterfactual Control Plane",
+  "preset": "swiss",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "bgm": "minimal-tech",
+  "scenes": [
+    {
+      "scene_id": "opening",
+      "kicker": "2026 MOOMOO X QODER AI TRADING AGENT CHALLENGE",
+      "title": "AegisGate Risk & Execution Control Plane",
+      "subtitle": "Bridging qualitative Qoder Cloud Agents with zero-hallucination R01–R11 deterministic risk governance",
+      "duration": 10.94,
+      "narration": "AegisGate pairs 'Qoder Cloud Agents' and Moomoo skills with a 0.0066ms 'R01-R11' risk gate.",
+      "visual_type": "opening_title",
+      "fact_ids": [
+        "fact_r1_r11_gate",
+        "fact_qca_12_skills_packaged"
+      ],
+      "assets": [
+        "images/aegisgate_hero.svg"
+      ],
+      "badges": [
+        "R01–R11 DETERMINISTIC GATE",
+        "+$12,270 SAVED DRAWDOWN",
+        "12 QCA SKILL ZIPS VALIDATED"
+      ],
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "R01-R11 GATE MATRIX",
+          "text": "11 Hard Competition Guardrails",
+          "subtext": "36% Cap · >=3 Tickers · <=6% Heat · Holiday Flatten",
+          "start": 1.01,
+          "duration": 8.75,
+          "x": 48,
+          "y": 52,
+          "w": 34,
+          "h": 72
+        }
+      ],
+      "audio_file": "audio/opening.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 9.55,
+          "text": "AegisGate pairs 'Qoder Cloud Agents' and Moomoo skills with a 0.0066ms 'R01-R11' risk gate."
+        }
+      ]
+    },
+    {
+      "scene_id": "problem",
+      "kicker": "COMPETITION & OPEN-SOURCE FAILURE ANALYSIS",
+      "title": "Why Naive LLM Trading Agents Blow Up",
+      "subtitle": "Four verified failure modes across open-source repos and paper trading accounts",
+      "duration": 9.59,
+      "narration": "Naive LLM bots suffer '29.2-point' RSI math errors, prompt drift, and unprotected paper stops.",
+      "visual_type": "problem_flow",
+      "fact_ids": [
+        "fact_wilder_vs_cutler_rsi",
+        "fact_r1_r11_gate"
+      ],
+      "diagram": {
+        "nodes": [
+          {
+            "id": "node_glitch",
+            "label": "Yahoo Glitch Bars",
+            "sublabel": "Blank close NaN rows (PR #1707)",
+            "category": "input",
+            "metric": "NaN Close"
+          },
+          {
+            "id": "node_cutler",
+            "label": "Cutler RSI Math Bug",
+            "sublabel": "Simple mean vs Wilder (PR #759)",
+            "category": "bottleneck",
+            "metric": "29.2pt Drift"
+          },
+          {
+            "id": "node_drift",
+            "label": "Prompt Policy Drift",
+            "sublabel": "8 Cloud vs Local conflicts (§08)",
+            "category": "bottleneck",
+            "metric": ">40% Breach"
+          },
+          {
+            "id": "node_liquidation",
+            "label": "Forced Liquidation",
+            "sublabel": "No resting stop & 0DTE exercise",
+            "category": "output",
+            "metric": "No Reset Card"
+          }
+        ],
+        "edges": [
+          {
+            "from": "node_glitch",
+            "to": "node_cutler",
+            "label": "235 SIGNAL FLIPS",
+            "status": "bottleneck"
+          },
+          {
+            "from": "node_cutler",
+            "to": "node_drift",
+            "label": "PROSE OVERRIDE",
+            "status": "bottleneck"
+          },
+          {
+            "from": "node_drift",
+            "to": "node_liquidation",
+            "label": "-27.2% DRAWDOWN",
+            "status": "bottleneck"
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "node_cutler",
+          "text": "235 False Flips",
+          "start": 1.02,
+          "duration": 3.84
+        },
+        {
+          "type": "highlight",
+          "target": "node_drift",
+          "text": "8 Rule Conflicts",
+          "start": 4.99,
+          "duration": 3.84
+        }
+      ],
+      "audio_file": "audio/problem.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 8.21,
+          "text": "Naive LLM bots suffer '29.2-point' RSI math errors, prompt drift, and unprotected paper stops."
+        }
+      ]
+    },
+    {
+      "scene_id": "architecture",
+      "kicker": "QODER CLOUD AGENTS FORWARD MODE ARCHITECTURE",
+      "title": "Four-Thread QCA + R01–R11 Gate",
+      "subtitle": "Isolated Session Threads with version-pinned skills and zero-hallucination pre-trade gate",
+      "duration": 8.54,
+      "narration": "Our 'Coordinator' isolates the 'Scout', 'Risk Auditor', and '3-Rung Executor' with an independent 'Advisor'.",
+      "visual_type": "exploded_view",
+      "fact_ids": [
+        "fact_qca_12_skills_packaged",
+        "fact_r1_r11_gate"
+      ],
+      "assets": [
+        "models/aegisgate_architecture.svg"
+      ],
+      "exploded_parts": [
+        {
+          "id": "part_coord",
+          "name": "Coordinator (v4) + Advisor",
+          "spec": "STHR_COORD · SGT 3-SESSION ROUTER",
+          "role": "Routes 17:00 Pre, 22:30 RTH, 05:00 Post-Market & Nov 27 Black Friday Flatten",
+          "layer": -1.5
+        },
+        {
+          "id": "part_scout",
+          "name": "Scout Researcher (v2)",
+          "spec": "7 MOOMOO READ-ONLY SKILLS",
+          "role": "Fuses Technical, Capital Flow & Derivatives anomalies with Wilder RSI-14",
+          "layer": -0.5
+        },
+        {
+          "id": "part_auditor",
+          "name": "Isolated Risk Auditor (v3)",
+          "spec": "DETERMINISTIC R01–R11 GATE · 0.0066ms",
+          "role": "Enforces <=36% cap, >=3 tickers, <=6% heat, DTE>=2, and logs rejections",
+          "layer": 0.5
+        },
+        {
+          "id": "part_executor",
+          "name": "Order Executor (v2)",
+          "spec": "SIM-COMP-5770313 VAULT · 3-RUNG LADDER",
+          "role": "Walks limit orders Mid -> +50% -> Ask ceiling & runs 5m Stop Watchdog",
+          "layer": 1.5
+        }
+      ],
+      "animations": [
+        {
+          "type": "explode",
+          "target": "assembly",
+          "start": 0.32,
+          "duration": 7.69
+        },
+        {
+          "type": "highlight",
+          "target": "part_auditor",
+          "text": "Sole Gatekeeper: 11/11 Pass Required Before Execution",
+          "start": 1.28,
+          "duration": 3.42
+        },
+        {
+          "type": "label",
+          "target": "part_executor",
+          "text": "3-Rung Limit Ladder + 20x Bar Volume Check",
+          "start": 4.8,
+          "duration": 3.2
+        }
+      ],
+      "audio_file": "audio/architecture.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 7.14,
+          "text": "Our 'Coordinator' isolates the 'Scout', 'Risk Auditor', and '3-Rung Executor' with an independent 'Advisor'."
+        }
+      ]
+    },
+    {
+      "scene_id": "live_terminal",
+      "kicker": "LIVE DEPLOYED CONTROL PLANE WALKTHROUGH",
+      "title": "Executing NVDA & Vetoing SMCI Trap",
+      "subtitle": "Live R01–R11 gate evaluation, 3-rung limit ticket, and counterfactual saved drawdown",
+      "duration": 12.57,
+      "narration": "Watch AegisGate approve 'US.NVDA' at 28.8% weight, then veto 'US.SMCI' to save $6,348.",
+      "visual_type": "real_footage_with_annotations",
+      "fact_ids": [
+        "fact_r1_r11_gate",
+        "fact_playwright_36_36_qa"
+      ],
+      "live_capture": {
+        "url": "https://moomoo-x-qoder.vercel.app/",
+        "actions": [
+          {
+            "type": "wait",
+            "ms": 900,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#preset-btn-PROP-SMCI-REJECT-R03-R10",
+            "__focus": [
+              187.7,
+              513.8
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1200,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#btn-commit-proposal",
+            "__focus": [
+              553.6,
+              510.1
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1400,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#preset-btn-PROP-SPY-0DTE-REJECT-R09",
+            "__focus": [
+              176.7,
+              713.2
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1200,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#preset-btn-PROP-NVDA-001",
+            "__focus": [
+              181.9,
+              438.8
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1200,
+            "__focus": null
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "R01-R11 ANNUNCIATOR",
+          "text": "SMCI Blocked by R03, R05, R06, R10",
+          "subtext": "1-Day Pre-Earnings + 41.5% Concentration Trap Vetoed",
+          "start": 1.48,
+          "duration": 5.18,
+          "x": 45,
+          "y": 54,
+          "w": 36,
+          "h": 44
+        },
+        {
+          "type": "label",
+          "target": "COUNTERFACTUAL SCOPE",
+          "text": "Saved Drawdown Increments to +$18,619",
+          "subtext": "Guarded Emerald NAV vs Ungated Orange Curve",
+          "start": 6.8,
+          "duration": 5.03,
+          "x": 82,
+          "y": 44,
+          "w": 30,
+          "h": 36
+        }
+      ],
+      "assets": [
+        "footage/live_live_terminal.mp4",
+        "footage/live_live_terminal.mp4",
+        "footage/live_live_terminal.mp4"
+      ],
+      "audio_file": "audio/live_terminal.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 11.17,
+          "text": "Watch AegisGate approve 'US.NVDA' at 28.8% weight, then veto 'US.SMCI' to save $6,348."
+        }
+      ]
+    },
+    {
+      "scene_id": "live_ledger_qca",
+      "kicker": "REJECTION LEDGER, 11-SECTOR RS & QCA PACKAGER",
+      "title": "First-Class Auditability & 12 Skill ZIPs",
+      "subtitle": "Inspecting JSONL rejection logs, 11 SPDR sectors, and ready-to-upload QCA bundles",
+      "duration": 10.84,
+      "narration": "Inspect 'decisions.jsonl', reconcile 11 SPDR sectors, and export all '12 QCA Skill ZIPs' in one click.",
+      "visual_type": "real_footage_with_annotations",
+      "fact_ids": [
+        "fact_qca_12_skills_packaged",
+        "fact_playwright_36_36_qa"
+      ],
+      "live_capture": {
+        "url": "https://moomoo-x-qoder.vercel.app/",
+        "actions": [
+          {
+            "type": "wait",
+            "ms": 600,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#nav-tab-ledger",
+            "__focus": [
+              726.3,
+              267.6
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1800,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#nav-tab-regime",
+            "__focus": [
+              1190.2,
+              269.1
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 1800,
+            "__focus": null
+          },
+          {
+            "type": "click",
+            "sel": "#nav-tab-qca",
+            "__focus": [
+              1688.8,
+              264.2
+            ]
+          },
+          {
+            "type": "wait",
+            "ms": 2000,
+            "__focus": null
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "REJECTION LEDGER",
+          "text": "Structured JSONL Audit Log",
+          "subtext": "Answers 'What Failed and Why' with Counterfactual P&L",
+          "start": 0.81,
+          "duration": 4.34,
+          "x": 50,
+          "y": 52,
+          "w": 75,
+          "h": 42
+        },
+        {
+          "type": "label",
+          "target": "QCA SKILL PACKAGER",
+          "text": "12 Validated QCA Skill .ZIP Archives",
+          "subtext": "Single top-level folder + repaired relative links",
+          "start": 5.69,
+          "duration": 4.61,
+          "x": 52,
+          "y": 64,
+          "w": 72,
+          "h": 38
+        }
+      ],
+      "assets": [
+        "footage/live_live_ledger_qca.mp4",
+        "footage/live_live_ledger_qca.mp4",
+        "footage/live_live_ledger_qca.mp4"
+      ],
+      "audio_file": "audio/live_ledger_qca.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 9.48,
+          "text": "Inspect 'decisions.jsonl', reconcile 11 SPDR sectors, and export all '12 QCA Skill ZIPs' in one click."
+        }
+      ]
+    },
+    {
+      "scene_id": "validation",
+      "kicker": "STAGE 3.5 REAL-WORLD EMPIRICAL BENCHMARK",
+      "title": "Validated on 4,769 Real Yahoo Finance Bars",
+      "subtitle": "19 US Equity & SPDR Sector datasets (Nov 2025 – Nov 2026) · 25/25 Validation Cases Pass",
+      "duration": 14.7,
+      "narration": "Across '4,769 real bars', AegisGate cut max drawdown from 27.22% to '7.97%' and prevented '235' RSI flips.",
+      "visual_type": "technical_validation",
+      "fact_ids": [
+        "fact_190d_backtest_drawdown",
+        "fact_wilder_vs_cutler_rsi",
+        "fact_r1_r11_gate"
+      ],
+      "metrics": [
+        {
+          "id": "max_dd",
+          "label": "190-Day Out-of-Sample Max Drawdown (Lower is Better)",
+          "value": 7.97,
+          "unit": "%",
+          "baseline": 27.22,
+          "status": "verified",
+          "note": "3.4x smaller drawdown vs Ungated Cutler Baseline (275 risky entries blocked)"
+        },
+        {
+          "id": "rsi_flips",
+          "label": "Wilder RSI Accuracy across 1,386 Equity Bars",
+          "value": 100,
+          "unit": "%",
+          "baseline": 83.04,
+          "status": "verified",
+          "note": "Prevented 235 false 30/70 threshold flips (up to 29.22 pts divergence on TSLA)"
+        },
+        {
+          "id": "qa_pass",
+          "label": "Playwright Firefox Real-Browser QA & 25-Case Validation",
+          "value": 100,
+          "unit": "%",
+          "baseline": 88,
+          "status": "verified",
+          "note": "36/36 Firefox QA scenarios + 25/25 multi-tier validation cases (0.0066ms/eval)"
+        }
+      ],
+      "limitations": [
+        "Historical options chain backtesting via Moomoo MCP is pending upstream API support (FAQ line 911); R09 DTE>=2 guard is verified on live snapshots.",
+        "Live order execution requires the participant's local moomoo OAuth login or QCA Vault credential."
+      ],
+      "audio_file": "audio/validation.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 13.32,
+          "text": "Across '4,769 real bars', AegisGate cut max drawdown from 27.22% to '7.97%' and prevented '235' RSI flips."
+        }
+      ]
+    },
+    {
+      "scene_id": "closing",
+      "kicker": "READY FOR 2026 MOOMOO X QODER SUBMISSION",
+      "title": "AegisGate · Preserve Capital First",
+      "subtitle": "Live at moomoo-x-qoder.vercel.app · Runnable QCA Package & 12 Skill ZIPs Included",
+      "duration": 6.09,
+      "narration": "AegisGate: 'deterministic' risk governance for agentic trading.",
+      "visual_type": "closing_summary",
+      "fact_ids": [
+        "fact_r1_r11_gate",
+        "fact_190d_backtest_drawdown",
+        "fact_qca_12_skills_packaged"
+      ],
+      "badges": [
+        "GATE::R01–R11 in 0.0066ms",
+        "DRAWDOWN::7.97% vs 27.22% Baseline",
+        "PACKAGE::12 QCA Skill ZIPs + 4 Threads"
+      ],
+      "audio_file": "audio/closing.mp3",
+      "captions": [
+        {
+          "start": 0.1,
+          "end": 4.71,
+          "text": "AegisGate: 'deterministic' risk governance for agentic trading."
+        }
+      ]
+    }
+  ]
+}

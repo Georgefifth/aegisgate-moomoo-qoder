@@ -202,6 +202,35 @@ export function evaluateProposalThroughGate(
     proposal.instrumentType === "LONG_CALL_OPTION" ||
     proposal.instrumentType === "LONG_PUT_OPTION";
 
+  const hasValidSymbolFormat = /^[A-Z]{2}\.[A-Z0-9._-]+$/i.test(
+    (proposal.symbol || "").trim()
+  );
+  const safeCliSymbol = hasValidSymbolFormat
+    ? proposal.symbol.trim().toUpperCase()
+    : "INVALID.SYMBOL";
+
+  const finiteEntry =
+    Number.isFinite(proposal.entryPrice) && proposal.entryPrice > 0
+      ? proposal.entryPrice
+      : 0;
+  const finiteStop =
+    Number.isFinite(proposal.stopPrice) && proposal.stopPrice >= 0
+      ? proposal.stopPrice
+      : 0;
+  const finiteTarget =
+    Number.isFinite(proposal.targetPrice) && proposal.targetPrice > 0
+      ? proposal.targetPrice
+      : 0;
+  const finiteMcap =
+    Number.isFinite(proposal.marketCapUsdM) && proposal.marketCapUsdM >= 0
+      ? proposal.marketCapUsdM
+      : 0;
+  const finiteBarVol5m =
+    Number.isFinite(proposal.barVolume5mShares) &&
+    proposal.barVolume5mShares >= 0
+      ? proposal.barVolume5mShares
+      : 0;
+
   // 1. Determine regime-adjusted risk budget (%)
   const baseRiskBudgetPct =
     context.regimePosture === "FULL"
@@ -217,13 +246,22 @@ export function evaluateProposalThroughGate(
   );
 
   // 2. Per-unit risk
-  const rawPriceStopDistance = Math.abs(proposal.entryPrice - proposal.stopPrice);
+  const rawPriceStopDistance = Math.abs(finiteEntry - finiteStop);
   const perUnitRiskUsd = isOption
-    ? Number(((proposal.optionContractPremium || proposal.entryPrice) * 100).toFixed(2))
+    ? Number(
+        (
+          (Number.isFinite(proposal.optionContractPremium) &&
+          (proposal.optionContractPremium || 0) > 0
+            ? proposal.optionContractPremium!
+            : Math.max(0.01, finiteEntry)) * 100
+        ).toFixed(2)
+      )
     : Math.max(0.01, Number(rawPriceStopDistance.toFixed(4)));
 
   const riskBasedUnits =
-    perUnitRiskUsd > 0 ? Math.floor(riskBudgetUsd / perUnitRiskUsd) : 0;
+    finiteEntry > 0 && perUnitRiskUsd > 0
+      ? Math.floor(riskBudgetUsd / perUnitRiskUsd)
+      : 0;
 
   // 3. Single-symbol 36% buffer cap (4% safety buffer below Moomoo's hard 40% ceiling)
   const existingNotional =
@@ -236,18 +274,27 @@ export function evaluateProposalThroughGate(
 
   const unitNotionalMultiplier = isOption ? 100 : 1;
   const unitCostUsd =
-    (isOption
-      ? proposal.optionContractPremium || proposal.entryPrice
-      : proposal.entryPrice) * unitNotionalMultiplier;
+    finiteEntry > 0
+      ? (isOption
+          ? proposal.optionContractPremium || finiteEntry
+          : finiteEntry) * unitNotionalMultiplier
+      : 0;
 
-  const concentrationCapUnits = isOption
-    ? Math.min(1000, Math.floor(remainingSymbolRoomUsd / Math.max(1, unitCostUsd)))
-    : Math.floor(remainingSymbolRoomUsd / Math.max(0.01, unitCostUsd));
+  const concentrationCapUnits =
+    unitCostUsd > 0
+      ? isOption
+        ? Math.min(1000, Math.floor(remainingSymbolRoomUsd / unitCostUsd))
+        : Math.floor(remainingSymbolRoomUsd / unitCostUsd)
+      : 0;
 
   // 4. Moomoo 20x Market Volume Matching Cap (T&C §7: actual market volume * 20)
   const volume20xCapUnits = isOption
-    ? 250
-    : Math.max(1, Math.floor(proposal.barVolume5mShares * 20 * 0.25));
+    ? finiteBarVol5m > 0
+      ? 250
+      : 0
+    : finiteBarVol5m > 0
+    ? Math.max(1, Math.floor(finiteBarVol5m * 20 * 0.25))
+    : 0;
 
   // If user requested an explicit allocation override (e.g., to test >40% violation in What-If mode)
   let finalUnits = Math.max(
@@ -256,13 +303,14 @@ export function evaluateProposalThroughGate(
   );
 
   if (
+    unitCostUsd > 0 &&
     proposal.requestedAllocationOverridePct &&
     proposal.requestedAllocationOverridePct > 0
   ) {
     const targetNotional =
       (context.netAssetsUsd * proposal.requestedAllocationOverridePct) / 100;
-    finalUnits = Math.max(1, Math.floor(targetNotional / Math.max(0.01, unitCostUsd)));
-  } else if (finalUnits === 0 && riskBasedUnits > 0) {
+    finalUnits = Math.max(1, Math.floor(targetNotional / unitCostUsd));
+  } else if (finalUnits === 0 && riskBasedUnits > 0 && volume20xCapUnits > 0) {
     // Keep riskBasedUnits for measurement if blocked by concentration cap so R03 shows the exact breach
     finalUnits = riskBasedUnits;
   }
@@ -326,33 +374,43 @@ export function evaluateProposalThroughGate(
 
   // --- Evaluate R01 through R11 ---
 
-  // R01: Minimum Share Price >= $1.00 (Moomoo T&C §3.1)
-  const r01Passed = proposal.entryPrice >= 1.0;
+  // R01: Minimum Share Price >= $1.00 & Valid MARKET.CODE Symbol (Moomoo T&C §3.1)
+  const r01Passed =
+    hasValidSymbolFormat &&
+    Number.isFinite(proposal.entryPrice) &&
+    proposal.entryPrice >= 1.0;
   const r01: RuleCheckResult = {
     ruleId: "R01",
     shortLabel: "Share Price >= $1.00",
     category: "ELIGIBILITY",
     passed: r01Passed,
-    measuredValue: `$${proposal.entryPrice.toFixed(2)}`,
-    thresholdValue: ">= $1.00 USD",
-    safetyMarginText: r01Passed
+    measuredValue: Number.isFinite(proposal.entryPrice)
+      ? `$${proposal.entryPrice.toFixed(2)}`
+      : "NaN / Invalid",
+    thresholdValue: ">= $1.00 USD (MARKET.CODE)",
+    safetyMarginText: !hasValidSymbolFormat
+      ? "INVALID SYMBOL FORMAT"
+      : r01Passed
       ? `+$${(proposal.entryPrice - 1.0).toFixed(2)} above floor`
-      : `-$${(1.0 - proposal.entryPrice).toFixed(2)} penny stock violation`,
-    reasonIfFailed:
-      "Moomoo Paper Trading T&C §3.1 prohibits trading stocks priced below USD 1.00.",
+      : `-$${(1.0 - finiteEntry).toFixed(2)} penny stock violation`,
+    reasonIfFailed: !hasValidSymbolFormat
+      ? "Symbol violates Moomoo MARKET.CODE format or contains disallowed CLI characters."
+      : "Moomoo Paper Trading T&C §3.1 prohibits trading stocks priced below USD 1.00.",
   };
 
   // R02: Market Cap >= $500M (Moomoo T&C §3.2)
-  const r02Passed = proposal.marketCapUsdM >= 500;
+  const r02Passed =
+    Number.isFinite(proposal.marketCapUsdM) && proposal.marketCapUsdM >= 500;
   const r02: RuleCheckResult = {
     ruleId: "R02",
     shortLabel: "Market Cap >= $500M",
     category: "ELIGIBILITY",
     passed: r02Passed,
-    measuredValue:
-      proposal.marketCapUsdM >= 1000
-        ? `$${(proposal.marketCapUsdM / 1000).toFixed(1)}B`
-        : `$${proposal.marketCapUsdM.toFixed(0)}M`,
+    measuredValue: !Number.isFinite(proposal.marketCapUsdM)
+      ? "NaN / Invalid"
+      : proposal.marketCapUsdM >= 1000
+      ? `$${(proposal.marketCapUsdM / 1000).toFixed(1)}B`
+      : `$${proposal.marketCapUsdM.toFixed(0)}M`,
     thresholdValue: ">= $500M USD",
     safetyMarginText: r02Passed
       ? `${(proposal.marketCapUsdM / 500).toFixed(1)}x minimum cap`
@@ -460,20 +518,28 @@ export function evaluateProposalThroughGate(
         : `Regime posture ${context.regimePosture} blocks new ${proposal.side} exposure.`,
   };
 
-  // R08: Daily Executed Order Allowance < 200 orders/day (Moomoo T&C §3.3)
-  const r08Passed = context.ordersExecutedToday < 190;
+  // R08: Daily Executed Order Allowance < 200 orders/day & 20x Matching Volume > 0 (Moomoo T&C §3.3 & §7)
+  const r08Passed =
+    context.ordersExecutedToday < 190 &&
+    volume20xCapUnits > 0 &&
+    finalUnits > 0;
   const r08: RuleCheckResult = {
     ruleId: "R08",
     shortLabel: "Order Count < 190/200",
     category: "EXECUTION_TIMING",
     passed: r08Passed,
-    measuredValue: `${context.ordersExecutedToday} / 200 orders`,
-    thresholdValue: "< 190 (10 reserved for exits)",
-    safetyMarginText: r08Passed
-      ? `${200 - context.ordersExecutedToday} orders remaining today`
-      : `Order quota exhausted (${context.ordersExecutedToday}/200)`,
+    measuredValue: `${context.ordersExecutedToday} / 200 orders · 20xVol=${volume20xCapUnits}`,
+    thresholdValue: "< 190 orders · 5mVol > 0",
+    safetyMarginText:
+      volume20xCapUnits <= 0
+        ? "ZERO MATCHING VOLUME (T&C §7)"
+        : r08Passed
+        ? `${200 - context.ordersExecutedToday} orders remaining today`
+        : `Order quota exhausted (${context.ordersExecutedToday}/200)`,
     reasonIfFailed:
-      "Approaching Moomoo's 200 executed orders/day ceiling; remaining slots reserved for protective exits.",
+      volume20xCapUnits <= 0
+        ? "Moomoo T&C §7 requires non-zero market volume for order matching (barVolume5mShares is 0)."
+        : "Approaching Moomoo's 200 executed orders/day ceiling; remaining slots reserved for protective exits.",
   };
 
   // R09: Option Expiry & Auto-Exercise Protection (Moomoo T&C §5 & Slide 21)
@@ -617,7 +683,7 @@ export function evaluateProposalThroughGate(
       offsetMinutes: 0,
       limitPrice: midPrice,
       actionType: "INITIAL_SUBMIT",
-      cliCommand: `moomoo sim order ${cliVerb} ${proposal.symbol} ${sizing.finalUnits} --account ${context.accountId} --market US --type limit --price ${midPrice.toFixed(2)} --format json`,
+      cliCommand: `moomoo sim order ${cliVerb} ${safeCliSymbol} ${sizing.finalUnits} --account ${context.accountId} --market US --type limit --price ${midPrice.toFixed(2)} --format json`,
       note: "Submit initial limit at NBBO Midpoint; check fill status at T+5m.",
     },
     {

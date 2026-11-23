@@ -1,0 +1,256 @@
+{
+  "base": "http://127.0.0.1:4173",
+  "browser": "firefox",
+  "headed": false,
+  "startedAt": "2026-11-23T14:05:58.366Z",
+  "finishedAt": "2026-11-23T14:06:18.806Z",
+  "summary": {
+    "total": 18,
+    "pass": 18,
+    "fail": 0
+  },
+  "results": [
+    {
+      "viewport": "desktop",
+      "id": "P0-01-landing",
+      "title": "Landing terminal, Swiss Brutalist hierarchy, R01-R11 matrix & zero horizontal overflow",
+      "status": "pass",
+      "ms": 954,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-01-landing-landing-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P0-02-approve-persist",
+      "title": "End-to-end approved proposal execution (US.PLTR) & persistence across page reload",
+      "status": "pass",
+      "ms": 1641,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-02-approve-persist-pltr-committed-desktop.png",
+        "evidence/stage-3-qa/screens/P0-02-approve-persist-pltr-persisted-after-reload-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P0-03-veto-counterfactual",
+      "title": "Deterministic gate veto (US.SMCI pre-earnings & >36% cap) and counterfactual saved loss",
+      "status": "pass",
+      "ms": 951,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-03-veto-counterfactual-smci-veto-logged-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P0-04-session-holiday-guard",
+      "title": "What-If 42% concentration stress test & Thanksgiving / Black Friday holiday cutoff guard (R11)",
+      "status": "pass",
+      "ms": 715,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-04-session-holiday-guard-holiday-flatten-guard-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P1-05-invalid-input-recovery",
+      "title": "Invalid input validation (Stop >= Entry, malformed symbol) and clean recovery",
+      "status": "pass",
+      "ms": 1105,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-05-invalid-input-recovery-invalid-input-blocked-desktop.png",
+        "evidence/stage-3-qa/screens/P1-05-invalid-input-recovery-invalid-input-recovered-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P1-06-ledger-empty-and-jsonl",
+      "title": "Counterfactual ledger filters, actionable empty state, and JSONL artifact inspector",
+      "status": "pass",
+      "ms": 870,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-06-ledger-empty-and-jsonl-ledger-empty-state-desktop.png",
+        "evidence/stage-3-qa/screens/P1-06-ledger-empty-and-jsonl-ledger-restored-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P1-07-regime-and-11-sectors",
+      "title": "Market regime simulator (CASH wedge drop), 11-Sector RS & AA Playbook §08 Reconciler",
+      "status": "pass",
+      "ms": 982,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-07-regime-and-11-sectors-regime-cash-applied-desktop.png",
+        "evidence/stage-3-qa/screens/P1-07-regime-and-11-sectors-terminal-blocked-by-cash-regime-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P1-08-qca-fleet-and-zips",
+      "title": "QCA 4-Thread roster, Forward Mode schedules & 12 downloadable Skill .zip packages",
+      "status": "pass",
+      "ms": 884,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-08-qca-fleet-and-zips-qca-fleet-and-12-zips-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "P2-09-keyboard-a11y",
+      "title": "Keyboard navigation, explicit form labels & >=44px primary touch targets",
+      "status": "pass",
+      "ms": 687,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P2-09-keyboard-a11y-keyboard-focus-a11y-desktop.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P0-01-landing",
+      "title": "Landing terminal, Swiss Brutalist hierarchy, R01-R11 matrix & zero horizontal overflow",
+      "status": "pass",
+      "ms": 985,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-01-landing-landing-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P0-02-approve-persist",
+      "title": "End-to-end approved proposal execution (US.PLTR) & persistence across page reload",
+      "status": "pass",
+      "ms": 1710,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-02-approve-persist-pltr-committed-mobile.png",
+        "evidence/stage-3-qa/screens/P0-02-approve-persist-pltr-persisted-after-reload-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P0-03-veto-counterfactual",
+      "title": "Deterministic gate veto (US.SMCI pre-earnings & >36% cap) and counterfactual saved loss",
+      "status": "pass",
+      "ms": 1097,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-03-veto-counterfactual-smci-veto-logged-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P0-04-session-holiday-guard",
+      "title": "What-If 42% concentration stress test & Thanksgiving / Black Friday holiday cutoff guard (R11)",
+      "status": "pass",
+      "ms": 762,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P0-04-session-holiday-guard-holiday-flatten-guard-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P1-05-invalid-input-recovery",
+      "title": "Invalid input validation (Stop >= Entry, malformed symbol) and clean recovery",
+      "status": "pass",
+      "ms": 1272,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-05-invalid-input-recovery-invalid-input-blocked-mobile.png",
+        "evidence/stage-3-qa/screens/P1-05-invalid-input-recovery-invalid-input-recovered-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P1-06-ledger-empty-and-jsonl",
+      "title": "Counterfactual ledger filters, actionable empty state, and JSONL artifact inspector",
+      "status": "pass",
+      "ms": 918,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-06-ledger-empty-and-jsonl-ledger-empty-state-mobile.png",
+        "evidence/stage-3-qa/screens/P1-06-ledger-empty-and-jsonl-ledger-restored-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P1-07-regime-and-11-sectors",
+      "title": "Market regime simulator (CASH wedge drop), 11-Sector RS & AA Playbook §08 Reconciler",
+      "status": "pass",
+      "ms": 1087,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-07-regime-and-11-sectors-regime-cash-applied-mobile.png",
+        "evidence/stage-3-qa/screens/P1-07-regime-and-11-sectors-terminal-blocked-by-cash-regime-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P1-08-qca-fleet-and-zips",
+      "title": "QCA 4-Thread roster, Forward Mode schedules & 12 downloadable Skill .zip packages",
+      "status": "pass",
+      "ms": 877,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P1-08-qca-fleet-and-zips-qca-fleet-and-12-zips-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "P2-09-keyboard-a11y",
+      "title": "Keyboard navigation, explicit form labels & >=44px primary touch targets",
+      "status": "pass",
+      "ms": 737,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/P2-09-keyboard-a11y-keyboard-focus-a11y-mobile.png"
+      ]
+    }
+  ]
+}

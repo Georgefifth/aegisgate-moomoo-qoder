@@ -240,7 +240,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  transition: transform 100ms ease, background-color 100ms ease;
+  min-width: 0;
 }
 
 .mode-tab-btn:last-child {
@@ -251,7 +251,8 @@ body {
   background: var(--bg-cell);
 }
 
-.mode-tab-btn.active {
+.mode-tab-btn.active,
+.mode-tab-btn.active:hover {
   background: var(--ink);
   color: var(--bg-paper);
 }
@@ -288,6 +289,8 @@ body {
   border-right: var(--border-heavy);
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .terminal-col:last-child {
@@ -327,6 +330,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Brutalist Buttons & Inputs */
@@ -478,6 +483,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .field-label {
@@ -490,6 +497,9 @@ body {
 
 .brutalist-input,
 .brutalist-select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 44px;
   padding: 8px 10px;
   border: var(--border-thin);
@@ -499,6 +509,15 @@ body {
   font-size: 12px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
+}
+
+.regime-simulator-grid {
+  border: var(--border-heavy);
+  background: var(--bg-cell);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 18px;
 }
 
 .brutalist-input:focus,
@@ -754,7 +773,8 @@ body {
   .ladder-rungs-grid {
     grid-template-columns: 1fr;
   }
-  .field-grid-2 {
+  .field-grid-2,
+  .regime-simulator-grid {
     grid-template-columns: 1fr;
   }
 }
